@@ -48,6 +48,11 @@ export function WebsitesSection() {
                 </li>
               ))}
             </ul>
+            <div className="mt-6 pt-6 border-t border-border-subtle">
+              <p className="text-sm text-text-muted">
+                All builds run through the <Link href="/library" className="text-brand-primary hover:underline">C.L.O.S.E. Method™</Link> framework.
+              </p>
+            </div>
           </Card>
 
           {/* Best for */}

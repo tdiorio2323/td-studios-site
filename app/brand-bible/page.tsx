@@ -1,3 +1,7 @@
+import Link from "next/link"
+import { Download, ArrowLeft } from "lucide-react"
+import { Button } from "@/components/ui/button"
+
 export default function BrandBiblePage() {
   return (
     <section className="mx-auto max-w-3xl px-4 py-16 md:py-20 space-y-10">
@@ -12,9 +16,17 @@ export default function BrandBiblePage() {
         <p className="text-base text-text-muted">
           This is the consolidated "Director's Cut" version of The Brand Bible—sharpened for TD Studios clients who care about strategic architecture, not just aesthetics.
         </p>
-        <p className="mt-2 text-xs text-text-muted">
-          A downloadable PDF version of The Brand Bible will be available here soon.
-        </p>
+        <div className="mt-6 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+          <a href="/brand-bible/TD-Studios-Brand-Bible.pdf" download>
+            <Button className="bg-brand-primary hover:bg-brand-primary/90 text-white border-0">
+              <Download className="mr-2 h-4 w-4" />
+              Download PDF
+            </Button>
+          </a>
+          <Link href="/library" className="text-sm font-medium text-text-muted hover:text-brand-primary transition-colors flex items-center">
+            <ArrowLeft className="mr-1 h-3 w-3" /> Back to Library
+          </Link>
+        </div>
       </div>
 
       {/* Section 01 - Manifesto */}

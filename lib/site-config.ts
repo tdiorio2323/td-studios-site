@@ -21,6 +21,10 @@ export const siteConfig = {
       href: "/work",
     },
     {
+      title: "Library",
+      href: "/library",
+    },
+    {
       title: "Process",
       href: "/process",
     },

@@ -96,38 +96,26 @@ export function ProcessSteps() {
         </div>
 
         {/* Download Section */}
-        <section className="mt-12 rounded-2xl border border-border-subtle bg-bg-elevated/60 p-6 md:p-8 mb-10">
-          <h2 className="text-xl font-semibold mb-2">
-            Download the C.L.O.S.E. Method™ overview
-          </h2>
-          <p className="text-sm text-text-muted mb-4 max-w-xl">
-            Want the framework on paper? Grab the PDF and keep it next to you while we map your site, offers, and content.
-          </p>
-
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button
-              asChild
-              className="bg-brand-primary hover:bg-brand-primary/90 text-white border-0"
-            >
-              <a
-                href="/close-method/The-CLOSE-Method.pdf"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Download the Overview (PDF)
-              </a>
-            </Button>
-
-            <a
-              href="/close-method/THE_CLOSE_METHOD_2.0.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="text-xs text-text-muted hover:text-brand-primary underline underline-offset-4"
-            >
-              C.L.O.S.E. Method 2.0 notes (PDF)
-            </a>
+        <div className="mt-12 rounded-xl border border-border-subtle bg-bg-elevated/40 backdrop-blur-md p-6 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div>
+            <h3 className="text-lg font-semibold text-text-primary mb-1">
+              Want the full breakdown?
+            </h3>
+            <p className="text-sm text-text-muted">
+              Download the C.L.O.S.E. Method™ PDF for offline reference.
+            </p>
           </div>
-        </section>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <a href="/close-method/The-CLOSE-Method.pdf" download>
+              <Button className="bg-brand-primary hover:bg-brand-primary/90 text-white border-0">
+                Download PDF
+              </Button>
+            </a>
+            <Link href="/library" className="text-sm font-medium text-text-muted hover:text-brand-primary transition-colors">
+              View Library
+            </Link>
+          </div>
+        </div>
 
         {/* Final CTA */}
         <section className="mt-10 border-t border-border-subtle pt-8">

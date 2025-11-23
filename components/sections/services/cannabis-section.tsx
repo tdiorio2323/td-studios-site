@@ -182,6 +182,9 @@ export function CannabisSection() {
                     <p className="mt-1.5 text-sm text-text-muted">{step.text}</p>
                   </div>
                 ))}
+                <p className="text-sm text-text-muted pt-2">
+                  All projects run through our internal frameworks like the <Link href="/library" className="text-emerald-400 hover:underline">C.L.O.S.E. Method™</Link>.
+                </p>
               </div>
             </div>
           </div>

@@ -40,6 +40,11 @@ export function BrandingSection() {
                 </li>
               ))}
             </ul>
+            <div className="mt-6 pt-6 border-t border-border-subtle">
+              <p className="text-sm text-text-muted">
+                Includes access to <Link href="/library" className="text-brand-tertiary hover:underline">The Brand Bible</Link> as a strategic reference.
+              </p>
+            </div>
           </Card>
 
           <Card className="p-8 bg-bg-elevated/50 border-border-subtle">
