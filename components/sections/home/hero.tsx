@@ -1,8 +1,12 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight } from "lucide-react"
+import { FadeIn } from "@/components/motion/fade-in"
 
 export function Hero() {
   return (
@@ -14,34 +18,42 @@ export function Hero() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           {/* Left Content */}
           <div className="flex flex-col items-start gap-6">
-            <Badge variant="outline" className="border-brand-primary/50 text-brand-primary bg-brand-primary/10 backdrop-blur-sm">
-              Now Booking Q1 2025
-            </Badge>
+            <FadeIn delay={0.0}>
+              <Badge variant="outline" className="border-brand-primary/50 text-brand-primary bg-brand-primary/10 backdrop-blur-sm">
+                Now Booking Q1 2025
+              </Badge>
+            </FadeIn>
 
-            <h1 className="text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:text-7xl">
-              Elevate your <br className="hidden lg:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-tertiary">
-                digital presence.
-              </span>
-            </h1>
+            <FadeIn delay={0.05}>
+              <h1 className="text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:text-7xl">
+                Elevate your <br className="hidden lg:block" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-tertiary">
+                  digital presence.
+                </span>
+              </h1>
+            </FadeIn>
 
-            <p className="max-w-lg text-lg text-text-muted md:text-xl">
-              Websites that convert. Branding that looks expensive. Content systems that don't fall apart after a week.
-            </p>
+            <FadeIn delay={0.1}>
+              <p className="max-w-lg text-lg text-text-muted md:text-xl">
+                Websites that convert. Branding that looks expensive. Content systems that don't fall apart after a week.
+              </p>
+            </FadeIn>
 
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <Link href="/contact">
-                <Button size="lg" className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary/90 text-white border-0">
-                  Start a Project
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-              <Link href="/work">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto border-border-subtle hover:bg-bg-elevated hover:text-brand-primary">
-                  View Selected Work
-                </Button>
-              </Link>
-            </div>
+            <FadeIn delay={0.15}>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <Link href="/contact">
+                  <Button size="lg" className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary/90 text-white border-0">
+                    Start a Project
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+                <Link href="/work">
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto border-border-subtle hover:bg-bg-elevated hover:text-brand-primary">
+                    View Selected Work
+                  </Button>
+                </Link>
+              </div>
+            </FadeIn>
           </div>
 
           {/* Right Visual */}
@@ -50,7 +62,14 @@ export function Hero() {
             <div className="absolute inset-[-40%] -z-10 bg-gradient-to-tr from-brand-primary via-brand-secondary to-brand-tertiary opacity-25 blur-3xl" />
 
             {/* Glass Card Container */}
-            <div className="relative overflow-hidden rounded-3xl border border-border-subtle bg-bg-elevated/80 backdrop-blur-xl shadow-[0_24px_80px_rgba(0,0,0,0.75)]">
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.35 }}
+              whileHover={{ y: -4 }}
+              className="relative overflow-hidden rounded-3xl border border-border-subtle bg-bg-elevated/80 backdrop-blur-xl shadow-[0_24px_80px_rgba(0,0,0,0.75)]"
+            >
               <div className="relative aspect-[4/5] w-full">
                 <Image
                   src="/hero-image.jpg"
@@ -60,7 +79,7 @@ export function Hero() {
                   priority
                 />
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

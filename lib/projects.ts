@@ -1,51 +1,65 @@
+export type ServiceType = "web" | "branding" | "social" | "cannabis";
+
 export type Project = {
-  id: string
-  title: string
-  category: "Website" | "Branding" | "Social"
-  description: string
-  image: string // Placeholder color or path
-  slug: string
-}
+  slug: string;
+  name: string;
+  client?: string;
+  summary: string;
+  serviceType: ServiceType;
+  tags: string[];
+  image?: string;       // path under /public
+  highlight?: string;   // short 1-liner
+};
 
 export const projects: Project[] = [
   {
-    id: "1",
-    title: "Vesper Architecture",
-    category: "Website",
-    description: "Minimalist portfolio for a high-end residential architect firm.",
-    image: "bg-neutral-800", // Placeholder class
-    slug: "vesper-architecture",
+    slug: "candy-rain-mylars",
+    name: "Candy Rain Drop Series",
+    client: "Purpz",
+    summary: "Full mylar series for Candy Rain strain drops: bags, jars, and social rollout assets.",
+    serviceType: "cannabis",
+    tags: ["Mylar Bags", "Strain Line", "Social Launch"],
+    image: "/work/candy-rain-mylars.jpg",
+    highlight: "Sold out first drop in under 48 hours."
   },
   {
-    id: "2",
-    title: "Lumina Skin",
-    category: "Branding",
-    description: "Complete visual identity for a luxury biotech skincare brand.",
-    image: "bg-brand-primary/20",
-    slug: "lumina-skin",
+    slug: "spreed-fd-series",
+    name: "Freeze-Dried Spree Line",
+    client: "Private Brand",
+    summary: "Packaging line built around freeze-dried candy SKUs with bold, candy-inspired visuals.",
+    serviceType: "cannabis",
+    tags: ["Packaging", "Edibles", "Flavor System"],
+    image: "/work/freeze-dried-spree.jpg",
+    highlight: "Unified look across 5+ SKUs."
   },
   {
-    id: "3",
-    title: "Apex Fitness",
-    category: "Social",
-    description: "Content system and reel templates for a performance gym.",
-    image: "bg-brand-secondary/20",
-    slug: "apex-fitness",
+    slug: "td-studios-hq-site",
+    name: "TD Studios HQ",
+    client: "TD Studios",
+    summary: "Core studio site focused on tight copy, high-impact visuals, and clear service funnels.",
+    serviceType: "web",
+    tags: ["Website", "Strategy", "Conversion"],
+    image: "/work/td-studios-site.jpg",
+    highlight: "Built to convert web, brand, and social clients."
   },
   {
-    id: "4",
-    title: "Echo Finance",
-    category: "Website",
-    description: "Web3 dashboard and marketing site for a DeFi protocol.",
-    image: "bg-brand-tertiary/20",
-    slug: "echo-finance",
+    slug: "chef-brand-refresh",
+    name: "Chef Brand Refresh",
+    client: "Chef Client",
+    summary: "Identity and system refresh for a food brand: logo, palette, typography, and socials.",
+    serviceType: "branding",
+    tags: ["Branding", "Logo", "Social Kit"],
+    image: "/work/chef-branding.jpg",
+    highlight: "Cohesive look across all touchpoints."
   },
   {
-    id: "5",
-    title: "Nectar",
-    category: "Branding",
-    description: "Packaging and identity for an organic cold-press juice line.",
-    image: "bg-neutral-700",
-    slug: "nectar",
-  },
-]
+    slug: "social-system-pack",
+    name: "Social System Pack",
+    client: "Creator",
+    summary: "Content system with templates, cover styles, and post rhythm for a creator account.",
+    serviceType: "social",
+    tags: ["Social Templates", "Content System"],
+    image: "/work/social-system-pack.jpg",
+    highlight: "Turnkey content engine instead of random posts."
+  }
+];

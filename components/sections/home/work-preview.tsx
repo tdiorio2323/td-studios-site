@@ -1,56 +1,115 @@
+"use client"
+
 import Link from "next/link"
-import { projects } from "@/lib/projects"
+import { projects, ServiceType } from "@/lib/projects"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { SectionHeader } from "@/components/section-header"
+import { FadeIn, StaggerFadeIn, StaggerItem } from "@/components/motion/fade-in"
+import { cn } from "@/lib/utils"
+
+const serviceColors: Record<ServiceType, string> = {
+    web: "bg-brand-primary/20 text-brand-primary",
+    branding: "bg-orange-500/20 text-orange-500",
+    social: "bg-cyan-500/20 text-cyan-500",
+    cannabis: "bg-emerald-500/20 text-emerald-500",
+}
+
+const gradientMap: Record<ServiceType, string> = {
+    web: "from-brand-primary/20 via-brand-secondary/10 to-transparent",
+    branding: "from-orange-500/20 via-amber-500/10 to-transparent",
+    social: "from-cyan-500/20 via-blue-500/10 to-transparent",
+    cannabis: "from-emerald-500/20 via-lime-500/10 to-transparent",
+}
 
 export function WorkPreview() {
     const featuredProjects = projects.slice(0, 4)
 
     return (
-        <section className="py-24 bg-bg-body">
+        <section className="py-20 md:py-28 border-t border-border-subtle/40 bg-gradient-to-b from-bg-body via-bg-body/95 to-bg-body">
             <div className="container mx-auto px-4 sm:px-8">
-                <div className="mb-12">
-                    <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Selected Work</h2>
-                    <p className="mt-2 text-text-muted">A curated look at recent projects. Not a gallery—just the work that matters.</p>
-                </div>
+                <FadeIn>
+                    <SectionHeader
+                        eyebrow="Selected Work"
+                        title="A curated look at what we build"
+                        subtitle="Not every project makes it here—only the work that best represents how we think about structure, visuals, and performance."
+                        align="left"
+                    />
+                </FadeIn>
 
-                <div className="grid gap-8 md:grid-cols-2">
+                <StaggerFadeIn className="grid gap-8 md:grid-cols-2">
                     {featuredProjects.map((project) => (
-                        <Link key={project.id} href={`/work`}>
-                            <Card className="group overflow-hidden border-border-subtle bg-bg-elevated/30 transition-all hover:border-brand-primary/30">
-                                <div className={`aspect-video w-full ${project.image} relative overflow-hidden`}>
-                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
-                                    {/* Placeholder for actual image */}
-                                    <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold text-white/10 group-hover:text-white/20 transition-colors">
-                                        {project.title.substring(0, 2).toUpperCase()}
-                                    </div>
-                                </div>
-                                <div className="p-6">
-                                    <div className="mb-2 flex items-center justify-between">
-                                        <h3 className="text-xl font-bold text-text-primary group-hover:text-brand-primary transition-colors">
-                                            {project.title}
-                                        </h3>
-                                        <Badge variant="secondary" className="bg-bg-elevated text-text-muted">
-                                            {project.category}
-                                        </Badge>
-                                    </div>
-                                    <p className="text-text-muted">{project.description}</p>
-                                </div>
-                            </Card>
-                        </Link>
-                    ))}
-                </div>
+                        <StaggerItem key={project.slug}>
+                            <Link href={`/work`}>
+                                <Card className="group h-full overflow-hidden border-border-subtle bg-bg-elevated/30 transition-all hover:border-brand-primary/30 hover:shadow-2xl hover:-translate-y-1">
+                                    {/* Image / Placeholder Area */}
+                                    <div className={cn(
+                                        "aspect-video w-full relative overflow-hidden bg-bg-elevated",
+                                        "bg-gradient-to-br",
+                                        gradientMap[project.serviceType]
+                                    )}>
+                                        <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
 
-                <div className="mt-12 text-center">
-                    <Link href="/work">
-                        <Button variant="outline" className="border-border-subtle hover:bg-bg-elevated">
-                            View All Projects
-                        </Button>
-                    </Link>
-                </div>
+                                        {/* Type Badge */}
+                                        <div className="absolute top-4 right-4">
+                                            <Badge variant="secondary" className="bg-bg-body/80 backdrop-blur-md border-border-subtle text-text-primary uppercase tracking-wider text-[10px]">
+                                                {project.serviceType}
+                                            </Badge>
+                                        </div>
+
+                                        {/* Placeholder Text (Initials) */}
+                                        <div className="absolute inset-0 flex items-center justify-center">
+                                            <span className="text-6xl font-bold text-white/5 group-hover:text-white/10 transition-colors select-none">
+                                                {project.name.substring(0, 2).toUpperCase()}
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div className="p-6 flex flex-col h-full">
+                                        <div className="mb-4">
+                                            <div className="flex items-center justify-between mb-2">
+                                                <span className="text-xs font-medium text-brand-primary uppercase tracking-wider">
+                                                    {project.client}
+                                                </span>
+                                            </div>
+                                            <h3 className="text-2xl font-bold text-text-primary group-hover:text-brand-primary transition-colors leading-tight">
+                                                {project.name}
+                                            </h3>
+                                        </div>
+
+                                        <p className="text-text-muted text-sm leading-relaxed mb-6 line-clamp-3">
+                                            {project.summary}
+                                        </p>
+
+                                        {/* Tags */}
+                                        <div className="mt-auto flex flex-wrap gap-2">
+                                            {project.tags.slice(0, 3).map((tag) => (
+                                                <span
+                                                    key={tag}
+                                                    className="inline-flex items-center rounded-md bg-bg-elevated px-2 py-1 text-xs font-medium text-text-muted ring-1 ring-inset ring-border-subtle/50"
+                                                >
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </Card>
+                            </Link>
+                        </StaggerItem>
+                    ))}
+                </StaggerFadeIn>
+
+                <FadeIn delay={0.2}>
+                    <div className="mt-12 text-center">
+                        <Link href="/work">
+                            <Button variant="outline" className="border-border-subtle hover:bg-bg-elevated">
+                                View All Projects
+                            </Button>
+                        </Link>
+                    </div>
+                </FadeIn>
             </div>
         </section>
     )
 }
-

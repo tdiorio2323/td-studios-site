@@ -1,6 +1,10 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { SectionHeader } from "@/components/section-header"
+import { FadeIn, StaggerFadeIn, StaggerItem } from "@/components/motion/fade-in"
 
 const steps = [
   {
@@ -27,59 +31,67 @@ const steps = [
 
 export function ProcessPreview() {
   return (
-    <section className="py-24 bg-bg-elevated border-y border-border-subtle">
+    <section className="py-20 md:py-28 border-t border-border-subtle/40 bg-gradient-to-b from-bg-body via-bg-body/95 to-bg-body">
       <div className="container mx-auto px-4 sm:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
           {/* Left Image */}
-          <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border-subtle shadow-2xl">
-              <Image
-                src="/close-method.jpg"
-                alt="The C.L.O.S.E. Method Book"
-                fill
-                className="object-cover"
-              />
-            </div>
+          <div className="relative mx-auto w-full max-w-md lg:max-w-none lg:sticky lg:top-24">
+            <FadeIn direction="right" duration={0.8}>
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border-subtle shadow-2xl">
+                <Image
+                  src="/close-method.jpg"
+                  alt="The C.L.O.S.E. Method Book"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </FadeIn>
           </div>
 
           {/* Right Content */}
           <div>
-            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">The C.L.O.S.E. Method</h2>
-            <p className="mt-4 max-w-md text-text-muted">
-              Every TD Studios project runs on The C.L.O.S.E. Method™—a five-phase system built to turn attention into revenue, not just likes.
-            </p>
+            <FadeIn>
+              <SectionHeader
+                eyebrow="The System"
+                title="The C.L.O.S.E. Method"
+                subtitle="Every TD Studios build follows this framework so projects stay structured, on-track, and on-time—without endless revision loops."
+                align="left"
+              />
+            </FadeIn>
 
-            <div className="mt-12 grid gap-8 sm:grid-cols-2">
+            <StaggerFadeIn className="mt-8 grid gap-8 sm:grid-cols-2">
               {steps.map((step) => (
-                <div key={step.number} className="relative pl-8">
+                <StaggerItem key={step.number} className="relative pl-8">
                   <div className="absolute left-0 top-0 text-xs font-bold text-brand-primary/50">
                     {step.number}
                   </div>
                   <div className="absolute left-0 top-6 bottom-0 w-px bg-border-subtle" />
                   <h3 className="mb-2 text-lg font-bold text-text-primary">{step.title}</h3>
                   <p className="text-sm text-text-muted">{step.description}</p>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerFadeIn>
 
-            <p className="mt-6 text-xs text-text-muted">
-              Want the full breakdown?{" "}
-              <a
-                href="/process"
-                className="text-brand-primary underline underline-offset-4"
-              >
-                Learn how the C.L.O.S.E. Method™ works
-              </a>
-              .
-            </p>
+            <FadeIn delay={0.3}>
+              <p className="mt-8 text-xs text-text-muted">
+                Want the full breakdown?{" "}
+                <a
+                  href="/process"
+                  className="text-brand-primary underline underline-offset-4"
+                >
+                  Learn how the C.L.O.S.E. Method™ works
+                </a>
+                .
+              </p>
 
-            <div className="mt-10">
-              <Link href="/process">
-                <Button variant="outline" className="border-border-subtle hover:bg-bg-body">
-                  View Full Process
-                </Button>
-              </Link>
-            </div>
+              <div className="mt-10">
+                <Link href="/process">
+                  <Button variant="outline" className="border-border-subtle hover:bg-bg-body">
+                    View Full Process
+                  </Button>
+                </Link>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </div>

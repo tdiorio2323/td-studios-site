@@ -3,9 +3,10 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { CheckCircle2, ArrowRight } from "lucide-react"
 import { projects } from "@/lib/projects"
+import { cn } from "@/lib/utils"
 
 export function WebsitesSection() {
-  const websiteProjects = projects.filter(p => p.category === "Website").slice(0, 3)
+  const websiteProjects = projects.filter(p => p.serviceType === "web").slice(0, 3)
 
   return (
     <div className="space-y-24 py-24">
@@ -73,11 +74,18 @@ export function WebsitesSection() {
         <h3 className="text-2xl font-bold mb-8">Recent Builds</h3>
         <div className="grid gap-6 md:grid-cols-3">
           {websiteProjects.map((project) => (
-            <Link key={project.id} href="/work">
+            <Link key={project.slug} href="/work">
               <div className="group cursor-pointer">
-                <div className={`aspect-video rounded-xl ${project.image} mb-4 border border-border-subtle group-hover:border-brand-primary/50 transition-colors`} />
-                <h4 className="font-bold text-lg group-hover:text-brand-primary transition-colors">{project.title}</h4>
-                <p className="text-sm text-text-muted">{project.description}</p>
+                <div className={cn(
+                  "aspect-video rounded-xl mb-4 border border-border-subtle group-hover:border-brand-primary/50 transition-colors overflow-hidden relative",
+                  "bg-gradient-to-br from-brand-primary/20 via-brand-secondary/10 to-transparent"
+                )}>
+                  <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold text-white/10 group-hover:text-white/20 transition-colors select-none">
+                    {project.name.substring(0, 2).toUpperCase()}
+                  </div>
+                </div>
+                <h4 className="font-bold text-lg group-hover:text-brand-primary transition-colors">{project.name}</h4>
+                <p className="text-sm text-text-muted line-clamp-2">{project.summary}</p>
               </div>
             </Link>
           ))}
