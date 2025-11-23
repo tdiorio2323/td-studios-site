@@ -46,13 +46,13 @@ export function ProcessSteps() {
         {/* Hero */}
         <div className="mb-16 max-w-3xl">
           <h1 className="text-4xl font-bold tracking-tighter md:text-6xl mb-4">
-            The C.L.O.S.E. Method™ 2.0
+            The C.L.O.S.E. Method™
           </h1>
           <p className="text-2xl font-medium text-text-primary mb-6">
             Master client acquisition and close high-paying deals with a repeatable framework.
           </p>
           <p className="text-lg text-text-muted mb-4">
-            If your digital presence doesn't close, it's costing you. Most businesses don't fail because of bad ideas—they fail because they can't turn attention into revenue. The C.L.O.S.E. Method™ 2.0 is a five-phase architecture designed to install clarity, leverage, irresistible offers, structure, and clean execution into your brand so more of the right people say "yes."
+            If your digital presence doesn't close, it's costing you. Most businesses don't fail because of bad ideas—they fail because they can't turn attention into revenue. The C.L.O.S.E. Method™ is a five-phase architecture designed to install clarity, leverage, irresistible offers, structure, and clean execution into your brand so more of the right people say "yes."
           </p>
           <p className="text-sm text-text-muted">
             Every TD Studios project runs through this system so you're not just "looking better online"—you're closing at a higher level with less noise.
@@ -137,7 +137,7 @@ export function ProcessSteps() {
                 Want to see how this would plug into your brand?
               </h3>
               <p className="text-sm text-text-muted max-w-md">
-                Share your offer, platforms, and goals. I'll map how the C.L.O.S.E. Method™ 2.0 would fit into what you already have—and where it needs to be rebuilt.
+                Share your offer, platforms, and goals. I'll map how the C.L.O.S.E. Method™ would fit into what you already have—and where it needs to be rebuilt.
               </p>
             </div>
             <Link href="/contact">

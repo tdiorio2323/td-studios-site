@@ -9,7 +9,7 @@ export default function ServicesPage() {
           Our Services
         </h1>
         <p className="max-w-2xl mx-auto text-xl text-text-muted">
-          Three ways to work with TD Studios. Each built to tie into the others—site, brand, and content.
+          Four ways to work with TD Studios. Each built to tie into the others—site, brand, content, and packaging.
         </p>
       </div>
       <ServicesOverview />

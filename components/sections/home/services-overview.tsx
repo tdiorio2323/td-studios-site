@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Monitor, Palette, Share2, ArrowRight } from "lucide-react"
+import { Monitor, Palette, Share2, Flame, ArrowRight } from "lucide-react"
 
 const services = [
   {
@@ -27,6 +27,14 @@ const services = [
     color: "text-brand-secondary",
     borderColor: "hover:border-brand-secondary/50",
   },
+  {
+    title: "Cannabis Branding & Packaging",
+    description: "High-impact packaging and drops for cannabis brands. Mylar bags, jars, pre-rolls, edibles—built to sell and stay consistent.",
+    icon: Flame,
+    href: "/services/cannabis",
+    color: "text-brand-tertiary",
+    borderColor: "hover:border-brand-tertiary/50",
+  },
 ]
 
 export function ServicesOverview() {
@@ -36,14 +44,14 @@ export function ServicesOverview() {
         <div className="mb-12 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
           <div>
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">What We Build</h2>
-            <p className="mt-2 text-text-muted">Three ways to work with TD Studios. Each designed to tie into the others.</p>
+            <p className="mt-2 text-text-muted">Four ways to work with TD Studios. Each designed to tie into the others.</p>
           </div>
           <Link href="/services" className="text-sm font-medium text-brand-primary hover:underline">
             View all services
           </Link>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
             <Link key={service.title} href={service.href}>
               <Card className={`h-full bg-bg-elevated/50 backdrop-blur-sm border-border-subtle transition-all duration-300 hover:-translate-y-1 ${service.borderColor}`}>

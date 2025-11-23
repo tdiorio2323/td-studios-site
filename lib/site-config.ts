@@ -9,6 +9,10 @@ export const siteConfig = {
   },
   mainNav: [
     {
+      title: "Home",
+      href: "/",
+    },
+    {
       title: "Services",
       href: "/services",
     },

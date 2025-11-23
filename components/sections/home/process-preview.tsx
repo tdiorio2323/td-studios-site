@@ -46,7 +46,7 @@ export function ProcessPreview() {
           <div>
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">The C.L.O.S.E. Method</h2>
             <p className="mt-4 max-w-md text-text-muted">
-              Every TD Studios project runs on The C.L.O.S.E. Method™ 2.0—a five-phase system built to turn attention into revenue, not just likes.
+              Every TD Studios project runs on The C.L.O.S.E. Method™—a five-phase system built to turn attention into revenue, not just likes.
             </p>
 
             <div className="mt-12 grid gap-8 sm:grid-cols-2">

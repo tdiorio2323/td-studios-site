@@ -19,9 +19,9 @@ export function Hero() {
             </Badge>
 
             <h1 className="text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:text-7xl">
-              Tight, high-impact <br className="hidden lg:block" />
+              Elevate your <br className="hidden lg:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-tertiary">
-                creative systems.
+                digital presence.
               </span>
             </h1>
 
