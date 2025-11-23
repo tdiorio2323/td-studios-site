@@ -4,6 +4,7 @@ interface SectionHeaderProps {
   eyebrow?: string
   title: string
   subtitle?: string
+  description?: string
   align?: "left" | "center"
   className?: string
 }
@@ -12,6 +13,7 @@ export function SectionHeader({
   eyebrow,
   title,
   subtitle,
+  description,
   align = "left",
   className,
 }: SectionHeaderProps) {
@@ -31,9 +33,9 @@ export function SectionHeader({
       <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-text-primary">
         {title}
       </h2>
-      {subtitle && (
+      {(subtitle || description) && (
         <p className="text-base md:text-lg text-text-muted max-w-2xl leading-relaxed">
-          {subtitle}
+          {subtitle || description}
         </p>
       )}
     </div>
