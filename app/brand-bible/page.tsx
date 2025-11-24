@@ -7,7 +7,7 @@ export default function BrandBiblePage() {
     <section className="mx-auto max-w-3xl px-4 sm:px-6 py-12 md:py-16 space-y-10">
       {/* Hero */}
       <div>
-        <p className="text-xs font-bold tracking-wider text-brand-primary/70 uppercase mb-2">
+        <p className="text-xs font-bold tracking-wider text-white/70 uppercase mb-2">
           THE BRAND BIBLE
         </p>
         <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
@@ -291,7 +291,7 @@ export default function BrandBiblePage() {
             <p className="font-semibold text-text-primary">Dominate with strategic presence.</p>
           </div>
 
-          <p className="mt-8 text-center font-bold text-xl text-brand-primary tracking-wider">
+          <p className="mt-8 text-center font-bold text-xl text-white tracking-wider">
             TD STUDIOS
           </p>
         </div>
