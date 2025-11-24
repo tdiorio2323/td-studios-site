@@ -15,6 +15,7 @@ const services = [
     href: "/services/websites",
     gradient: "from-brand-primary/50 via-brand-secondary/40 to-brand-tertiary/30",
     iconColor: "text-brand-primary",
+    spotlight: "card-spotlight-primary",
   },
   {
     title: "Branding & Design",
@@ -23,6 +24,7 @@ const services = [
     href: "/services/branding-design",
     gradient: "from-orange-400/50 via-amber-300/40 to-pink-400/30",
     iconColor: "text-orange-400",
+    spotlight: "card-spotlight-tertiary",
   },
   {
     title: "Social & Content",
@@ -31,6 +33,7 @@ const services = [
     href: "/services/social-media",
     gradient: "from-cyan-400/50 via-sky-400/40 to-emerald-400/30",
     iconColor: "text-cyan-400",
+    spotlight: "card-spotlight-secondary",
   },
   {
     title: "Cannabis Branding & Packaging",
@@ -39,6 +42,7 @@ const services = [
     href: "/services/cannabis",
     gradient: "from-emerald-400/60 via-lime-400/40 to-amber-300/40",
     iconColor: "text-emerald-400",
+    spotlight: "card-spotlight-emerald",
   },
 ]
 
@@ -73,7 +77,10 @@ export function ServicesOverview() {
                 <motion.div
                   whileHover={{ y: -6, scale: 1.02 }}
                   transition={{ type: "spring", stiffness: 220, damping: 20 }}
-                  className="group relative h-full overflow-hidden rounded-3xl border border-border-subtle/70 bg-bg-elevated/80 px-6 py-7 transition-colors duration-300 hover:border-brand-primary/70 hover:bg-bg-elevated/95 hover:shadow-[0_22px_60px_rgba(0,0,0,0.75)]"
+                  className={cn(
+                    "group relative h-full overflow-hidden rounded-3xl border border-border-subtle/70 bg-bg-elevated/80 px-6 py-7 transition-all duration-300 hover:bg-bg-elevated/95 hover:shadow-[0_22px_60px_rgba(0,0,0,0.75)]",
+                    service.spotlight
+                  )}
                 >
                   {/* Gradient Backdrop */}
                   <div className={cn(

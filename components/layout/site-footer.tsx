@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/site-config"
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border-subtle bg-bg-elevated py-12 md:py-16">
+    <footer className="border-t border-border-subtle bg-bg-elevated py-12 md:py-16 border-gradient-top">
       <div className="container mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="col-span-1 md:col-span-2">

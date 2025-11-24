@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+
 import { ArrowRight } from "lucide-react"
 import { FadeIn } from "@/components/motion/fade-in"
 
@@ -12,26 +12,42 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden pt-20 pb-32 md:pt-32 md:pb-48">
       {/* Background Gradient */}
-      <div className="absolute top-0 left-1/2 -z-10 h-[500px] w-[1000px] -translate-x-1/2 opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--brand-primary),_transparent_70%)] blur-[100px]" />
+      {/* Background Gradient */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute inset-0 bg-bg-body" />
+        <div
+          className="absolute -inset-[10px] opacity-40 blur-[80px] animate-aurora"
+          style={{
+            backgroundImage: `
+              radial-gradient(at 0% 0%, var(--brand-primary) 0px, transparent 50%),
+              radial-gradient(at 98% 1%, var(--brand-secondary) 0px, transparent 50%),
+              radial-gradient(at 5% 95%, var(--brand-tertiary) 0px, transparent 50%),
+              radial-gradient(at 95% 95%, var(--brand-primary) 0px, transparent 50%),
+              radial-gradient(at 50% 50%, var(--bg-body) 0px, transparent 50%)
+            `,
+            backgroundSize: '200% 200%'
+          }}
+        />
+        <div className="absolute inset-0 bg-noise opacity-20 mix-blend-overlay" />
+      </div>
 
       <div className="container mx-auto px-4 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           {/* Left Content */}
           <div className="flex flex-col items-start gap-6">
-            <FadeIn delay={0.0}>
-              <Badge variant="outline" className="border-brand-primary/50 text-brand-primary bg-brand-primary/10 backdrop-blur-sm">
-                Now Booking Q1 2025
-              </Badge>
-            </FadeIn>
 
-            <FadeIn delay={0.05}>
-              <h1 className="text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:text-7xl">
-                Elevate your <br className="hidden lg:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-tertiary">
-                  digital presence.
-                </span>
-              </h1>
-            </FadeIn>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+              className="text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:text-7xl"
+            >
+              Elevate your <br className="hidden lg:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-tertiary">
+                digital presence.
+              </span>
+            </motion.h1>
 
             <FadeIn delay={0.1}>
               <p className="max-w-lg text-lg text-text-muted md:text-xl">

@@ -14,8 +14,9 @@ import {
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border-subtle bg-bg-body/80 backdrop-blur-xl">
-      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 py-2">
+    <header className="sticky top-0 z-50 bg-bg-body/80 backdrop-blur-xl border-gradient-bottom">
+      <div className="absolute inset-0 bg-noise opacity-10 pointer-events-none" />
+      <div className="relative mx-auto flex h-20 max-w-6xl items-center justify-between px-4 py-2">
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/td-studios-logo.png"
@@ -55,11 +56,12 @@ export function SiteHeader() {
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-64 bg-bg-body border-border-subtle">
-              <SheetHeader className="mb-4">
+            <SheetContent side="right" className="w-64 bg-bg-body/90 backdrop-blur-xl border-l border-border-subtle">
+              <div className="absolute inset-0 bg-noise opacity-10 pointer-events-none" />
+              <SheetHeader className="mb-4 relative z-10">
                 <SheetTitle className="text-lg font-semibold text-text-primary">TD Studios</SheetTitle>
               </SheetHeader>
-              <nav className="flex flex-col gap-4">
+              <nav className="flex flex-col gap-4 relative z-10">
                 {siteConfig.mainNav.map((item) => (
                   <SheetClose asChild key={item.href}>
                     <Link
