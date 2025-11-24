@@ -4,7 +4,7 @@ import { FinalCTA } from "@/components/sections/home/final-cta"
 export default function ServicesPage() {
   return (
     <>
-      <div className="pt-24 pb-12 container mx-auto px-4 sm:px-8 text-center">
+      <div className="pt-16 pb-8 md:pt-24 md:pb-12 container mx-auto px-4 sm:px-6 md:px-8 text-center">
         <h1 className="text-4xl font-bold tracking-tighter md:text-6xl mb-6">
           Our Services
         </h1>

@@ -9,8 +9,8 @@ import { FadeIn, StaggerFadeIn, StaggerItem } from "@/components/motion/fade-in"
 
 export default function LibraryPage() {
   return (
-    <section className="pt-24 pb-24 md:pt-28 md:pb-32">
-      <div className="container mx-auto px-4 sm:px-8">
+    <section className="pt-16 pb-16 md:pt-24 md:pb-24">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8">
         <FadeIn>
           <SectionHeader
             eyebrow="TD Studios Library"

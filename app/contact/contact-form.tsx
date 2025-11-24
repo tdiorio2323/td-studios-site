@@ -59,7 +59,7 @@ export function ContactForm() {
         <div className="space-y-8">
             {/* Success State */}
             {state.ok && (
-                <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-4 flex items-start gap-3">
+                <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-4 sm:p-5 flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
                     <div>
                         <h3 className="font-medium text-emerald-500">Message sent</h3>
@@ -72,7 +72,7 @@ export function ContactForm() {
 
             {/* Error State */}
             {hasErrors && (
-                <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 flex items-start gap-3">
+                <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 sm:p-5 flex items-start gap-3">
                     <AlertCircle className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
                     <div>
                         <h3 className="font-medium text-red-500">
@@ -96,11 +96,11 @@ export function ContactForm() {
                 ref={formRef}
                 action={formAction}
                 className={cn(
-                    "space-y-8 bg-bg-elevated/30 p-8 rounded-2xl border border-border-subtle",
+                    "space-y-6 sm:space-y-8 bg-bg-elevated/30 p-6 sm:p-8 rounded-2xl border border-border-subtle",
                     state.ok && "opacity-50 pointer-events-none grayscale-[0.5] transition-all duration-500"
                 )}
             >
-                <div className="grid gap-6 md:grid-cols-2">
+                <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
                     <div className="space-y-2">
                         <Label htmlFor="name">Name <span className="text-brand-primary">*</span></Label>
                         <Input

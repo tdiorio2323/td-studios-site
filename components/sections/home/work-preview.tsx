@@ -27,7 +27,7 @@ export function WorkPreview() {
     const featuredProjects = projects.slice(0, 4)
 
     return (
-        <section className="py-20 md:py-28 border-t border-border-subtle/40 bg-gradient-to-b from-bg-body via-bg-body/95 to-bg-body">
+        <section className="py-16 md:py-20 border-t border-border-subtle/40 bg-gradient-to-b from-bg-body via-bg-body/95 to-bg-body">
             <div className="container mx-auto px-4 sm:px-8">
                 <FadeIn>
                     <SectionHeader

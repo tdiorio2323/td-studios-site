@@ -16,8 +16,8 @@ const gradientMap: Record<ServiceType, string> = {
 
 export function WorkGrid() {
   return (
-    <section className="py-24">
-      <div className="container mx-auto px-4 sm:px-8">
+    <section className="py-16 md:py-24">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8">
         <FadeIn>
           <div className="mb-12">
             <h1 className="text-4xl font-bold tracking-tighter md:text-6xl mb-6">Selected Work</h1>

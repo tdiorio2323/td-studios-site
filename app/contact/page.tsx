@@ -2,7 +2,7 @@ import { ContactForm } from "./contact-form"
 
 export default function ContactPage() {
   return (
-    <div className="container mx-auto px-4 py-24 sm:px-8">
+    <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 md:px-8">
       <div className="mx-auto max-w-3xl">
         <div className="mb-12 text-center">
           <h1 className="mb-4 text-4xl font-bold tracking-tighter md:text-5xl">Start a Project</h1>

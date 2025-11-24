@@ -10,12 +10,11 @@ import { FadeIn } from "@/components/motion/fade-in"
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-20 pb-32 md:pt-32 md:pb-48">
-      {/* Background Gradient */}
+    <section className="relative overflow-hidden pt-16 pb-20 md:pt-32 md:pb-48">
       {/* Background Gradient */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-bg-body" />
-        <div
+        <div 
           className="absolute -inset-[10px] opacity-40 blur-[80px] animate-aurora"
           style={{
             backgroundImage: `
@@ -31,7 +30,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-noise opacity-20 mix-blend-overlay" />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-8">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           {/* Left Content */}
           <div className="flex flex-col items-start gap-6">

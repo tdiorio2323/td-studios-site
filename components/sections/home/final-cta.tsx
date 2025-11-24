@@ -7,8 +7,8 @@ import { FadeIn } from "@/components/motion/fade-in"
 
 export function FinalCTA() {
   return (
-    <section className="py-20 md:py-28 border-t border-border-subtle/40 bg-gradient-to-b from-bg-body via-bg-body/95 to-bg-body">
-      <div className="container mx-auto px-4 sm:px-8">
+    <section className="py-16 md:py-20 border-t border-border-subtle/40 bg-gradient-to-b from-bg-body via-bg-body/95 to-bg-body">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8">
         <FadeIn>
           <div className="relative overflow-hidden rounded-3xl bg-bg-elevated/50 border border-border-subtle/50 px-6 py-16 text-center shadow-2xl sm:px-16 md:py-24">
             {/* Background Gradient */}

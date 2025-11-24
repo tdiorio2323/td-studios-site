@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 
 export default function BrandBiblePage() {
   return (
-    <section className="mx-auto max-w-3xl px-4 py-16 md:py-20 space-y-10">
+    <section className="mx-auto max-w-3xl px-4 sm:px-6 py-12 md:py-16 space-y-10">
       {/* Hero */}
       <div>
         <p className="text-xs font-bold tracking-wider text-brand-primary/70 uppercase mb-2">
