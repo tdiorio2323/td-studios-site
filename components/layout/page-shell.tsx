@@ -7,7 +7,7 @@ interface PageShellProps {
 
 export function PageShell({ children }: PageShellProps) {
   return (
-    <div className="flex min-h-screen flex-col bg-bg-body text-text-primary font-sans antialiased selection:bg-brand-primary/30 selection:text-brand-primary">
+    <div className="flex min-h-screen flex-col text-text-primary font-sans antialiased selection:bg-brand-primary/30 selection:text-brand-primary">
       <SiteHeader />
       <main className="flex-1">
         {children}

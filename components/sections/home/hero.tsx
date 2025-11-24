@@ -13,7 +13,7 @@ export function Hero() {
     <section className="relative overflow-hidden pt-16 pb-20 md:pt-32 md:pb-48">
       {/* Background Gradient */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-bg-body" />
+
         <div 
           className="absolute -inset-[10px] opacity-40 blur-[80px] animate-aurora"
           style={{
