@@ -72,67 +72,52 @@
 }
 
 :root {
-  /* Luxury dark cinematic palette */
-  --bg-body: #050308;
-  --bg-body-secondary: #050814;
-  --bg-elevated: #11111A;
-  --border-subtle: #252534;
-  --text-primary: #F9FAFB;
-  --text-muted: #9CA3AF;
-
-  /* Accent colors for luxury gradients */
-  --accent-ember: #FF4A3D;
-  --accent-teal-glow: #0EF7C8;
-
-  --brand-primary: #D6001C;
-    /* santa red */
-  --brand-secondary: #22D3EE; /* cyan */
-  --brand-tertiary: #F97316;  /* orange */
-
-  --background: var(--bg-body);
-  --foreground: var(--text-primary);
-
-  --card: var(--bg-elevated);
-  --card-foreground: var(--text-primary);
-
-  --popover: var(--bg-elevated);
-  --popover-foreground: var(--text-primary);
-
-  --primary: var(--brand-primary);
-  --primary-foreground: #ffffff;
-
-  --secondary: var(--bg-elevated);
-  --secondary-foreground: var(--text-primary);
-
-  --muted: var(--bg-elevated);
-  --muted-foreground: var(--text-muted);
-
-  --accent: var(--bg-elevated);
-  --accent-foreground: var(--text-primary);
-
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
-
-  --border: var(--border-subtle);
-  --input: var(--border-subtle);
-  --ring: var(--brand-primary);
-
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
   --radius: 0.625rem;
-  
-  --chart-1: 220 70% 50%;
-  --chart-2: 160 60% 45%;
-  --chart-3: 30 80% 55%;
-  --chart-4: 280 65% 60%;
-  --chart-5: 340 75% 55%;
-  
-  --sidebar: var(--bg-elevated);
-  --sidebar-foreground: var(--text-primary);
-  --sidebar-primary: var(--brand-primary);
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: var(--bg-elevated);
-  --sidebar-accent-foreground: var(--text-primary);
-  --sidebar-border: var(--border-subtle);
-  --sidebar-ring: var(--brand-primary);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+  --bg-body: var(--background);
+  --bg-body-secondary: oklch(0.97 0 0);
+  --bg-elevated: oklch(0.985 0 0);
+  --border-subtle: var(--border);
+  --text-primary: var(--foreground);
+  --text-muted: var(--muted-foreground);
+
+  --accent-ember: #ff4a3d;
+  --accent-teal-glow: #0ef7c8;
+  --brand-primary: #d6001c;
+  --brand-secondary: #22d3ee;
+  --brand-tertiary: #f97316;
 }
 
 .dark {
@@ -146,18 +131,74 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply text-foreground font-sans antialiased;
-    /* Optimized luxury cinematic gradient - performance friendly */
-    background:
-      radial-gradient(ellipse 1200px 900px at 50% 8%, rgba(255, 74, 61, 0.35), rgba(14, 247, 200, 0.12) 55%, transparent),
-      linear-gradient(135deg, #030207 0%, #060612 40%, #050814 100%);
+    @apply bg-background text-foreground font-sans antialiased;
+    background-image: url("/images/chess-background.jpg");
+    background-color: rgba(0, 0, 0, 0.1);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+    font-weight: 400;
+    letter-spacing: -0.011em;
   }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  [tabindex]:focus-visible {
+    @apply outline-2 outline-offset-2 outline-white/90;
   }
-    p {
-      @apply font-sans;
-    }
+  main:focus {
+    outline: none;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading), var(--font-sans), sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+  p {
+    font-family: var(--font-sans), var(--font-inter), sans-serif;
+  }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: -1;
+  pointer-events: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 @layer utilities {
