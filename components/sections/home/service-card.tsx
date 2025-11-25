@@ -56,11 +56,11 @@ export function ServiceCard({
 
           {/* Content */}
           <div className="flex flex-col flex-grow p-6">
-            <h3 className="text-lg font-semibold text-text-primary mb-3 group-hover:text-white transition-colors">
+            <h3 className="text-lg font-semibold text-brand-primary mb-3 transition-colors">
               {title}
             </h3>
 
-            <p className="text-body-sm mb-6 group-hover:text-text-primary/80 transition-colors">
+            <p className="text-sm text-black leading-relaxed mb-6 transition-colors">
               {description}
             </p>
 
