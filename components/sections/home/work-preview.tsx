@@ -1,12 +1,9 @@
-"use client"
-
 import Link from "next/link"
 import { projects, ServiceType } from "@/lib/projects"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { SectionHeader } from "@/components/section-header"
-import { FadeIn, StaggerFadeIn, StaggerItem } from "@/components/motion/fade-in"
 import { cn } from "@/lib/utils"
 
 const serviceColors: Record<ServiceType, string> = {
@@ -27,29 +24,32 @@ export function WorkPreview() {
     const featuredProjects = projects.slice(0, 4)
 
     return (
-        <section className="py-16 md:py-20 border-t border-border-subtle/40 bg-gradient-to-b from-bg-body via-bg-body/95 to-bg-body">
-            <div className="container mx-auto px-4 sm:px-8">
-                <FadeIn>
+        <section className="section-spacing-sm border-t border-border-subtle/40">
+            <div className="container mx-auto container-padding">
+                <div className="animate-fade-in-up">
                     <SectionHeader
                         eyebrow="Selected Work"
                         title="A curated look at what we build"
                         subtitle="Not every project makes it here—only the work that best represents how we think about structure, visuals, and performance."
                         align="left"
                     />
-                </FadeIn>
+                </div>
 
-                <StaggerFadeIn className="grid gap-8 md:grid-cols-2">
-                    {featuredProjects.map((project) => (
-                        <StaggerItem key={project.slug}>
+                <div className="grid gap-8 md:grid-cols-2">
+                    {featuredProjects.map((project, index) => (
+                        <div
+                            key={project.slug}
+                            className={`animate-fade-in-up animate-delay-${(index + 1) * 100}`}
+                        >
                             <Link href={`/work`}>
-                                <Card className="group h-full overflow-hidden border-border-subtle bg-bg-elevated/30 transition-all hover:border-brand-primary/30 hover:shadow-2xl hover:-translate-y-1">
+                                <Card className="group h-full overflow-hidden border-border-subtle bg-bg-elevated/30 hover-lift hover:border-brand-primary/30 hover:shadow-2xl">
                                     {/* Image / Placeholder Area */}
                                     <div className={cn(
                                         "aspect-video w-full relative overflow-hidden bg-bg-elevated",
                                         "bg-gradient-to-br",
                                         gradientMap[project.serviceType]
                                     )}>
-                                        <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
+                                        <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-smooth" />
 
                                         {/* Type Badge */}
                                         <div className="absolute top-4 right-4">
@@ -60,7 +60,7 @@ export function WorkPreview() {
 
                                         {/* Placeholder Text (Initials) */}
                                         <div className="absolute inset-0 flex items-center justify-center">
-                                            <span className="text-6xl font-bold text-white/5 group-hover:text-white/10 transition-colors select-none">
+                                            <span className="text-6xl font-bold text-white/5 group-hover:text-white/10 transition-smooth select-none">
                                                 {project.name.substring(0, 2).toUpperCase()}
                                             </span>
                                         </div>
@@ -73,12 +73,12 @@ export function WorkPreview() {
                                                     {project.client}
                                                 </span>
                                             </div>
-                                            <h3 className="text-2xl font-bold text-text-primary group-hover:text-brand-primary transition-colors leading-tight">
+                                            <h3 className="text-2xl font-bold text-text-primary group-hover:text-brand-primary transition-smooth leading-tight">
                                                 {project.name}
                                             </h3>
                                         </div>
 
-                                        <p className="text-text-muted text-sm leading-relaxed mb-6 line-clamp-3">
+                                        <p className="text-body-sm mb-6 line-clamp-3">
                                             {project.summary}
                                         </p>
 
@@ -96,19 +96,19 @@ export function WorkPreview() {
                                     </div>
                                 </Card>
                             </Link>
-                        </StaggerItem>
+                        </div>
                     ))}
-                </StaggerFadeIn>
+                </div>
 
-                <FadeIn delay={0.2}>
+                <div className="animate-fade-in-up animate-delay-500">
                     <div className="mt-12 text-center">
                         <Link href="/work">
-                            <Button variant="outline" className="border-border-subtle hover:bg-bg-elevated">
+                            <Button variant="outline" className="border-border-subtle hover:bg-bg-elevated transition-smooth">
                                 View All Projects
                             </Button>
                         </Link>
                     </div>
-                </FadeIn>
+                </div>
             </div>
         </section>
     )

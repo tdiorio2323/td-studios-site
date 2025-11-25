@@ -28,7 +28,7 @@ function SubmitButton() {
             type="submit"
             disabled={pending}
             size="lg"
-            className="w-full bg-brand-primary hover:bg-brand-primary/90 text-white border-0"
+            className="w-full bg-brand-primary hover:bg-brand-primary/90 text-white border-0 transition-smooth hover:scale-105"
         >
             {pending ? (
                 <>

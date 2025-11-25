@@ -41,20 +41,20 @@ const phases = [
 
 export function ProcessSteps() {
   return (
-    <section className="py-24">
-      <div className="container mx-auto px-4 sm:px-8">
+    <section className="section-spacing">
+      <div className="container mx-auto container-padding">
         {/* Hero */}
-        <div className="mb-16 max-w-3xl">
-          <h1 className="text-4xl font-bold tracking-tighter md:text-6xl mb-4">
+        <div className="mb-16 max-w-3xl animate-fade-in-up">
+          <h1 className="text-display mb-4">
             The C.L.O.S.E. Method™
           </h1>
-          <p className="text-2xl font-medium text-text-primary mb-6">
+          <p className="text-heading-2 text-text-primary mb-6">
             Master client acquisition and close high-paying deals with a repeatable framework.
           </p>
-          <p className="text-lg text-text-muted mb-4">
+          <p className="text-body-lg mb-4">
             If your digital presence doesn't close, it's costing you. Most businesses don't fail because of bad ideas—they fail because they can't turn attention into revenue. The C.L.O.S.E. Method™ is a five-phase architecture designed to install clarity, leverage, irresistible offers, structure, and clean execution into your brand so more of the right people say "yes."
           </p>
-          <p className="text-sm text-text-muted">
+          <p className="text-body-sm">
             Every TD Studios project runs through this system so you're not just "looking better online"—you're closing at a higher level with less noise.
           </p>
         </div>
@@ -62,19 +62,22 @@ export function ProcessSteps() {
         {/* Phases */}
         <div className="relative border-l border-border-subtle ml-4 md:ml-8 space-y-16 mb-20">
           {phases.map((phase, index) => (
-            <div key={index} className="relative pl-8 md:pl-16">
+            <div
+              key={index}
+              className={`relative pl-8 md:pl-16 animate-fade-in-up animate-delay-${Math.min((index + 1) * 100, 500)}`}
+            >
               <div className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-brand-primary ring-4 ring-bg-body" />
 
               <div className="max-w-2xl">
-                <div className="text-xs font-bold text-brand-primary/70 mb-2 tracking-wider uppercase">
+                <div className="text-eyebrow text-brand-primary/70 mb-2">
                   {phase.label}
                 </div>
-                <h3 className="text-2xl font-bold text-text-primary mb-4">{phase.headline}</h3>
-                <p className="text-base text-text-muted mb-4 leading-relaxed">{phase.body}</p>
-                <p className="text-sm text-text-primary/80 mb-2">
+                <h3 className="text-heading-2 mb-4">{phase.headline}</h3>
+                <p className="text-body mb-4">{phase.body}</p>
+                <p className="text-body-sm text-text-primary/80 mb-2">
                   <span className="font-semibold">Outcome:</span> {phase.outcome}
                 </p>
-                <p className="text-sm text-text-muted">
+                <p className="text-body-sm">
                   <span className="font-semibold">Action step:</span> {phase.action}
                 </p>
               </div>
@@ -83,53 +86,53 @@ export function ProcessSteps() {
         </div>
 
         {/* What the C.L.O.S.E. Method changes */}
-        <div className="mb-12 max-w-3xl">
-          <h2 className="text-3xl font-bold tracking-tighter mb-6">
+        <div className="mb-12 max-w-3xl animate-fade-in-up">
+          <h2 className="text-heading-1 mb-6">
             What the C.L.O.S.E. Method™ changes.
           </h2>
-          <p className="text-lg text-text-muted mb-4">
+          <p className="text-body-lg mb-4">
             The C.L.O.S.E. Method™ gives you the blueprint. TD Studios builds the machine. When this framework is implemented properly, we've seen close rates on qualified prospects increase, revenue and client value grow, and retention and satisfaction climb—because the entire client journey is structured, not improvised.
           </p>
-          <p className="text-sm text-text-muted">
+          <p className="text-body-sm">
             If you know your brand could be closing at a higher level, the next step is simple.
           </p>
         </div>
 
         {/* Download Section */}
-        <div className="mt-12 rounded-xl border border-border-subtle bg-bg-elevated/40 backdrop-blur-md p-6 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div className="mt-12 rounded-xl border border-border-subtle bg-bg-elevated/40 backdrop-blur-md p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 animate-fade-in-up">
           <div>
             <h3 className="text-lg font-semibold text-text-primary mb-1">
               Want the full breakdown?
             </h3>
-            <p className="text-sm text-text-muted">
+            <p className="text-body-sm">
               Download the C.L.O.S.E. Method™ PDF for offline reference.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <a href="/close-method/The-CLOSE-Method.pdf" download>
-              <Button className="bg-brand-primary hover:bg-brand-primary/90 text-white border-0">
+              <Button className="bg-brand-primary hover:bg-brand-primary/90 text-white border-0 transition-smooth hover:scale-105">
                 Download PDF
               </Button>
             </a>
-            <Link href="/library" className="text-sm font-medium text-text-muted hover:text-brand-primary transition-colors">
+            <Link href="/library" className="text-sm font-medium text-text-muted hover:text-brand-primary transition-smooth">
               View Library
             </Link>
           </div>
         </div>
 
         {/* Final CTA */}
-        <section className="mt-10 border-t border-border-subtle pt-8">
+        <section className="mt-10 border-t border-border-subtle pt-8 animate-fade-in-up">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
               <h3 className="text-lg font-semibold">
                 Want to see how this would plug into your brand?
               </h3>
-              <p className="text-sm text-text-muted max-w-md">
+              <p className="text-body-sm max-w-md">
                 Share your offer, platforms, and goals. I'll map how the C.L.O.S.E. Method™ would fit into what you already have—and where it needs to be rebuilt.
               </p>
             </div>
             <Link href="/contact">
-              <Button className="bg-brand-primary hover:bg-brand-primary/90 text-white border-0">
+              <Button className="bg-brand-primary hover:bg-brand-primary/90 text-white border-0 transition-smooth hover:scale-105">
                 Start a Project
               </Button>
             </Link>

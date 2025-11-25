@@ -14,10 +14,10 @@ import {
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 bg-bg-body/80 backdrop-blur-xl border-gradient-bottom">
+    <header className="sticky top-0 z-50 bg-bg-body/60 backdrop-blur-xl border-gradient-bottom">
       <div className="absolute inset-0 bg-noise opacity-10 pointer-events-none" />
-      <div className="relative mx-auto flex h-20 max-w-6xl items-center justify-between px-4 py-2">
-        <Link href="/" className="flex items-center gap-2">
+      <div className="relative mx-auto flex h-20 max-w-6xl items-center justify-between container-padding py-2">
+        <Link href="/" className="flex items-center gap-2 transition-smooth hover:opacity-80">
           <Image
             src="/td-studios-logo.png"
             alt="TD Studios"
@@ -34,16 +34,17 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-text-muted transition-colors hover:text-brand-primary"
+              className="group relative text-sm font-medium text-text-muted transition-colors hover:text-brand-primary"
             >
               {item.title}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-primary transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-4">
           <Link href="/contact">
-            <Button variant="default" className="hidden sm:flex bg-brand-primary hover:bg-brand-primary/90 text-white border-0">
+            <Button variant="default" className="hidden sm:flex bg-brand-primary hover:bg-brand-primary/90 text-white border-0 transition-smooth hover:scale-105">
               Start a Project
             </Button>
           </Link>
@@ -51,7 +52,7 @@ export function SiteHeader() {
           {/* Mobile Nav */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden text-text-primary">
+              <Button variant="ghost" size="icon" className="md:hidden text-text-primary hover:bg-bg-elevated transition-smooth">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
@@ -66,7 +67,7 @@ export function SiteHeader() {
                   <SheetClose asChild key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-sm font-medium text-text-primary hover:text-brand-primary"
+                      className="text-sm font-medium text-text-primary hover:text-brand-primary transition-smooth"
                     >
                       {item.title}
                     </Link>
@@ -74,7 +75,7 @@ export function SiteHeader() {
                 ))}
                 <SheetClose asChild>
                   <Link href="/contact">
-                    <Button className="mt-4 w-full bg-brand-primary hover:bg-brand-primary/90 text-white border-0">
+                    <Button className="mt-4 w-full bg-brand-primary hover:bg-brand-primary/90 text-white border-0 transition-smooth">
                       Start a Project
                     </Button>
                   </Link>

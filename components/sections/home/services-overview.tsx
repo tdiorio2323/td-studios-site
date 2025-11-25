@@ -1,12 +1,7 @@
-"use client"
-
 import Link from "next/link"
-import Image from "next/image"
 import { ArrowRight } from "lucide-react"
-import { motion } from "framer-motion"
 import { SectionHeader } from "@/components/section-header"
-import { cn } from "@/lib/utils"
-import { StaggerFadeIn, StaggerItem, FadeIn } from "@/components/motion/fade-in"
+import { ServiceCard } from "./service-card"
 
 const services = [
   {
@@ -46,10 +41,10 @@ const services = [
 
 export function ServicesOverview() {
   return (
-    <section className="py-16 md:py-20 border-t border-border-subtle/40 bg-gradient-to-b from-bg-body via-bg-body/95 to-bg-body">
-      <div className="container mx-auto px-4 sm:px-8">
+    <section className="section-spacing-sm border-t border-border-subtle/40">
+      <div className="container mx-auto container-padding">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
-          <FadeIn>
+          <div className="animate-fade-in-up">
             <SectionHeader
               eyebrow="Services"
               title="What We Build"
@@ -57,69 +52,31 @@ export function ServicesOverview() {
               align="left"
               className="mb-0"
             />
-          </FadeIn>
-          <FadeIn delay={0.2}>
+          </div>
+          <div className="animate-fade-in-up animate-delay-200">
             <Link
               href="/services"
-              className="hidden md:inline-flex items-center text-sm font-medium text-brand-primary hover:text-brand-primary/80 transition-colors mb-2"
+              className="hidden md:inline-flex items-center text-sm font-medium text-brand-primary hover:text-brand-primary/80 transition-smooth mb-2"
             >
               View all services <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
-          </FadeIn>
+          </div>
         </div>
 
-        <StaggerFadeIn className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {services.map((service) => (
-            <StaggerItem key={service.title} className="h-full">
-              <Link href={service.href} className="block h-full">
-                <motion.div
-                  whileHover={{ y: -6, scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 220, damping: 20 }}
-                  className={cn(
-                    "group relative h-full flex flex-col overflow-hidden rounded-3xl border border-border-subtle/70 bg-bg-elevated/80 transition-all duration-300 hover:bg-bg-elevated/95 hover:shadow-[0_22px_60px_rgba(0,0,0,0.75)]",
-                    service.spotlight
-                  )}
-                >
-                  {/* Image Box */}
-                  <div className="relative h-52 w-full overflow-hidden">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      style={{ objectPosition: (service as any).objectPosition || "center" }}
-                    />
-                    <div className={cn(
-                      "absolute inset-0 opacity-30 mix-blend-overlay bg-gradient-to-r",
-                      service.gradient
-                    )} />
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex flex-col flex-grow p-6">
-                    <h3 className="text-lg font-semibold text-text-primary mb-3 group-hover:text-white transition-colors">
-                      {service.title}
-                    </h3>
-
-                    <p className="text-sm text-text-muted leading-relaxed mb-6 group-hover:text-text-primary/80 transition-colors">
-                      {service.description}
-                    </p>
-
-                    <div className="mt-auto inline-flex items-center text-sm font-medium text-brand-primary group-hover:text-brand-primary/90">
-                      Learn more
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </div>
-                  </div>
-                </motion.div>
-              </Link>
-            </StaggerItem>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {services.map((service, index) => (
+            <ServiceCard
+              key={service.title}
+              {...service}
+              delay={(index + 1) * 100}
+            />
           ))}
-        </StaggerFadeIn>
+        </div>
 
         <div className="mt-8 md:hidden text-center">
           <Link
             href="/services"
-            className="inline-flex items-center text-sm font-medium text-brand-primary hover:text-brand-primary/80 transition-colors"
+            className="inline-flex items-center text-sm font-medium text-brand-primary hover:text-brand-primary/80 transition-smooth"
           >
             View all services <ArrowRight className="ml-2 h-4 w-4" />
           </Link>

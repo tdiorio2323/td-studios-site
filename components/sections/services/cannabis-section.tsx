@@ -43,7 +43,7 @@ const processSteps = [
 
 export function CannabisSection() {
   return (
-    <section className="border-t border-border-subtle/40 bg-gradient-to-b from-bg-body via-bg-body/95 to-bg-body py-20 md:py-28">
+    <section className="border-t border-border-subtle/40 py-20 md:py-28">
       <div className="container mx-auto px-4 sm:px-8 space-y-16 md:space-y-20">
         {/* Intro */}
         <FadeIn>

@@ -61,12 +61,17 @@
 }
 
 :root {
-  /* Default to Dark Mode values as base since it's a dark site */
-  --bg-body: #050509;
+  /* Luxury dark cinematic palette */
+  --bg-body: #050308;
+  --bg-body-secondary: #050814;
   --bg-elevated: #11111A;
   --border-subtle: #252534;
   --text-primary: #F9FAFB;
   --text-muted: #9CA3AF;
+
+  /* Accent colors for luxury gradients */
+  --accent-ember: #FF4A3D;
+  --accent-teal-glow: #0EF7C8;
 
   --brand-primary: #D6001C;
     /* santa red */
@@ -130,9 +135,11 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 32px 32px;
+    @apply text-foreground font-sans antialiased;
+    /* Optimized luxury cinematic gradient - performance friendly */
+    background:
+      radial-gradient(ellipse 1200px 900px at 50% 8%, rgba(255, 74, 61, 0.35), rgba(14, 247, 200, 0.12) 55%, transparent),
+      linear-gradient(135deg, #030207 0%, #060612 40%, #050814 100%);
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
@@ -143,6 +150,57 @@
 }
 
 @layer utilities {
+  /* Unified Section Spacing */
+  .section-spacing {
+    @apply py-20 md:py-24;
+  }
+
+  .section-spacing-sm {
+    @apply py-16 md:py-20;
+  }
+
+  .section-spacing-lg {
+    @apply py-24 md:py-32;
+  }
+
+  /* Container Padding (consistent) */
+  .container-padding {
+    @apply px-4 sm:px-6 md:px-8;
+  }
+
+  /* Typography Scale */
+  .text-eyebrow {
+    @apply text-xs font-medium tracking-[0.18em] uppercase text-text-primary/80;
+  }
+
+  .text-display {
+    @apply text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tighter;
+  }
+
+  .text-heading-1 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight;
+  }
+
+  .text-heading-2 {
+    @apply text-2xl md:text-3xl font-bold tracking-tight;
+  }
+
+  .text-heading-3 {
+    @apply text-xl md:text-2xl font-semibold;
+  }
+
+  .text-body-lg {
+    @apply text-lg md:text-xl text-text-muted leading-relaxed;
+  }
+
+  .text-body {
+    @apply text-base text-text-muted leading-relaxed;
+  }
+
+  .text-body-sm {
+    @apply text-sm text-text-muted leading-relaxed;
+  }
+
   .bg-noise {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
   }
@@ -200,6 +258,57 @@
     box-shadow: inset 0 0 40px 0 #34d399, 0 0 20px -10px #34d399;
     border-color: #34d399;
   }
+
+  /* Lightweight CSS Animation System */
+  /* Fade-in-up animation for scroll reveals */
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* Stagger delays for sequential reveals */
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+
+  /* Smooth transitions with unified timing */
+  .transition-smooth {
+    transition: all 240ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .transition-smooth-slow {
+    transition: all 360ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Hover lift effect for cards */
+  .hover-lift {
+    transition: transform 240ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 240ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-6px);
+  }
+
+  /* Respect prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in,
+    .animate-fade-in-up,
+    .hover-lift,
+    .transition-smooth,
+    .transition-smooth-slow {
+      animation: none !important;
+      transition: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
 }
 
 @keyframes aurora {
@@ -209,5 +318,25 @@
 
   100% {
     background-position: 350% 50%, 350% 50%;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} antialiased bg-bg-body text-text-primary`}
+        className={`${spaceGrotesk.variable} ${inter.variable} antialiased text-text-primary`}
       >
         <PageShell>{children}</PageShell>
       </body>

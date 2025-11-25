@@ -1,11 +1,8 @@
-"use client"
-
 import Link from "next/link"
 import { projects, ServiceType } from "@/lib/projects"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
-import { FadeIn, StaggerFadeIn, StaggerItem } from "@/components/motion/fade-in"
 
 const gradientMap: Record<ServiceType, string> = {
   web: "from-brand-primary/20 via-brand-secondary/10 to-transparent",
@@ -16,29 +13,30 @@ const gradientMap: Record<ServiceType, string> = {
 
 export function WorkGrid() {
   return (
-    <section className="py-16 md:py-24">
-      <div className="container mx-auto px-4 sm:px-6 md:px-8">
-        <FadeIn>
-          <div className="mb-12">
-            <h1 className="text-4xl font-bold tracking-tighter md:text-6xl mb-6">Selected Work</h1>
-            <p className="text-xl text-text-muted max-w-2xl">
-              A collection of digital products, brand identities, and content systems we've crafted.
-            </p>
-          </div>
-        </FadeIn>
+    <section className="section-spacing">
+      <div className="container mx-auto container-padding">
+        <div className="animate-fade-in-up mb-12">
+          <h1 className="text-display mb-6">Selected Work</h1>
+          <p className="text-body-lg max-w-2xl">
+            A collection of digital products, brand identities, and content systems we've crafted.
+          </p>
+        </div>
 
-        <StaggerFadeIn className="grid gap-8 md:grid-cols-2">
-          {projects.map((project) => (
-            <StaggerItem key={project.slug}>
+        <div className="grid gap-8 md:grid-cols-2">
+          {projects.map((project, index) => (
+            <div
+              key={project.slug}
+              className={`animate-fade-in-up animate-delay-${Math.min((index + 1) * 100, 500)}`}
+            >
               <Link href={`/work`}>
-                <Card className="group h-full overflow-hidden border-border-subtle bg-bg-elevated/30 transition-all hover:border-brand-primary/30 hover:shadow-2xl hover:-translate-y-1">
+                <Card className="group h-full overflow-hidden border-border-subtle bg-bg-elevated/30 hover-lift hover:border-brand-primary/30 hover:shadow-2xl">
                   {/* Image / Placeholder Area */}
                   <div className={cn(
                     "aspect-video w-full relative overflow-hidden bg-bg-elevated",
                     "bg-gradient-to-br",
                     gradientMap[project.serviceType]
                   )}>
-                    <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-smooth" />
 
                     {/* Type Badge */}
                     <div className="absolute top-4 right-4">
@@ -49,7 +47,7 @@ export function WorkGrid() {
 
                     {/* Placeholder Text (Initials) */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-6xl font-bold text-white/5 group-hover:text-white/10 transition-colors select-none">
+                      <span className="text-6xl font-bold text-white/5 group-hover:text-white/10 transition-smooth select-none">
                         {project.name.substring(0, 2).toUpperCase()}
                       </span>
                     </div>
@@ -62,12 +60,12 @@ export function WorkGrid() {
                           {project.client}
                         </span>
                       </div>
-                      <h3 className="text-2xl font-bold text-text-primary group-hover:text-brand-primary transition-colors leading-tight">
+                      <h3 className="text-heading-2 text-text-primary group-hover:text-brand-primary transition-smooth leading-tight">
                         {project.name}
                       </h3>
                     </div>
 
-                    <p className="text-text-muted text-sm leading-relaxed mb-6 line-clamp-3">
+                    <p className="text-body-sm mb-6 line-clamp-3">
                       {project.summary}
                     </p>
 
@@ -85,9 +83,9 @@ export function WorkGrid() {
                   </div>
                 </Card>
               </Link>
-            </StaggerItem>
+            </div>
           ))}
-        </StaggerFadeIn>
+        </div>
       </div>
     </section>
   )
