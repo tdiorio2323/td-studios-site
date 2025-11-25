@@ -34,7 +34,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="group relative text-sm font-medium text-text-muted transition-colors hover:text-brand-primary"
+              className="group relative text-sm font-medium text-white transition-colors hover:text-brand-primary"
             >
               {item.title}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-primary transition-all duration-300 group-hover:w-full" />
@@ -67,7 +67,7 @@ export function SiteHeader() {
                   <SheetClose asChild key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-sm font-medium text-text-primary hover:text-brand-primary transition-smooth"
+                      className="text-sm font-medium text-white hover:text-brand-primary transition-smooth"
                     >
                       {item.title}
                     </Link>

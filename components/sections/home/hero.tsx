@@ -37,19 +37,16 @@ export function Hero() {
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-              className="text-display"
+              className="text-display text-white"
             >
-              Elevate your <br className="hidden lg:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-tertiary">
-                digital presence.
-              </span>
+              Elevate your digital presence.
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-              className="max-w-lg text-body-lg"
+              className="max-w-lg text-body-lg text-white"
             >
               Websites that convert. Branding that looks expensive. Content systems that don't fall apart after a week.
             </motion.p>

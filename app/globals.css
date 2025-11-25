@@ -110,8 +110,8 @@
   --bg-body-secondary: oklch(0.97 0 0);
   --bg-elevated: oklch(0.985 0 0);
   --border-subtle: var(--border);
-  --text-primary: var(--foreground);
-  --text-muted: var(--muted-foreground);
+  --text-primary: #ffffff;
+  --text-muted: #ffffff;
 
   --accent-ember: #ff4a3d;
   --accent-teal-glow: #0ef7c8;
@@ -222,35 +222,35 @@ html {
 
   /* Typography Scale */
   .text-eyebrow {
-    @apply text-xs font-medium tracking-[0.18em] uppercase text-text-primary/80;
+    @apply text-xs font-medium tracking-[0.18em] uppercase text-white;
   }
 
   .text-display {
-    @apply text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tighter;
+    @apply text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tighter text-white;
   }
 
   .text-heading-1 {
-    @apply text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight;
+    @apply text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white;
   }
 
   .text-heading-2 {
-    @apply text-2xl md:text-3xl font-bold tracking-tight;
+    @apply text-2xl md:text-3xl font-bold tracking-tight text-white;
   }
 
   .text-heading-3 {
-    @apply text-xl md:text-2xl font-semibold;
+    @apply text-xl md:text-2xl font-semibold text-white;
   }
 
   .text-body-lg {
-    @apply text-lg md:text-xl text-text-muted leading-relaxed;
+    @apply text-lg md:text-xl text-white leading-relaxed;
   }
 
   .text-body {
-    @apply text-base text-text-muted leading-relaxed;
+    @apply text-base text-white leading-relaxed;
   }
 
   .text-body-sm {
-    @apply text-sm text-text-muted leading-relaxed;
+    @apply text-sm text-white leading-relaxed;
   }
 
   .bg-noise {
