@@ -11,24 +11,6 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden section-spacing-lg">
-      {/* Subtle Background Aurora - complements global gradient */}
-      {!shouldReduceMotion && (
-        <div className="absolute inset-0 -z-10 overflow-hidden">
-          <div
-            className="absolute -inset-[10px] opacity-25 blur-[100px] animate-aurora"
-            style={{
-              backgroundImage: `
-                radial-gradient(at 0% 0%, var(--brand-primary) 0px, transparent 50%),
-                radial-gradient(at 98% 1%, var(--brand-secondary) 0px, transparent 50%),
-                radial-gradient(at 5% 95%, var(--brand-tertiary) 0px, transparent 50%),
-                radial-gradient(at 95% 95%, var(--brand-primary) 0px, transparent 50%)
-              `,
-              backgroundSize: '200% 200%'
-            }}
-          />
-        </div>
-      )}
-
       <div className="container mx-auto container-padding">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           {/* Left Content */}
@@ -73,13 +55,6 @@ export function Hero() {
 
           {/* Right Visual */}
           <div className="relative mx-auto w-full max-w-md lg:max-w-none mt-8 lg:mt-0">
-            {/* Enhanced Luxury Gradient Glow */}
-            <div className="absolute inset-[-50%] -z-10 opacity-35 blur-[100px]"
-              style={{
-                background: `radial-gradient(ellipse at center, rgba(255, 74, 61, 0.6), rgba(255, 74, 61, 0.3) 40%, transparent 70%)`
-              }}
-            />
-
             {/* Glass Card Container */}
             <motion.div
               initial={{ opacity: 0, x: shouldReduceMotion ? 0 : 40 }}
