@@ -57,6 +57,15 @@ export function SiteFooter() {
                   Social Media
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/services/cannabis"
+                  className="group inline-flex items-center text-white/85 transition-all duration-300 hover:text-emerald-500 hover:translate-x-1"
+                >
+                  <span className="w-0 h-px bg-emerald-500 mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300" />
+                  Cannabis
+                </Link>
+              </li>
             </ul>
           </div>
 
